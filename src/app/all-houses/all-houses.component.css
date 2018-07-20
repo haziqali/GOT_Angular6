@@ -1,0 +1,6 @@
+.card-border{
+    background-color:  lightsteelblue;
+    border-color: green;
+    border-style: dashed;
+    border-width: 1.5px;
+}

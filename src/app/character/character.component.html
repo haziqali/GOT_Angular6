@@ -1,0 +1,19 @@
+
+<div class="loader centered" [hidden]="loader"></div>
+<div style="text-align: center; margin-left: 20%" class="col-md-7" *ngIf="character">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" *ngFor = "let alias of character.aliases">{{alias || 'Unavailable'}}</h4>
+            <p class="card-text">Name : {{character.name || 'Unavailable'}}</p>
+            <p class="card-text">Gender : {{character.gender || 'Unavailable'}}</p>
+            <p class="card-text">Born : {{character.born || 'Unavailable'}}</p>
+            <p class="card-text">Died : {{character.died || 'Unavailable'}}</p>
+            <p class="card-text" >Father : {{character.father || 'Unavailable'}}</p>
+            <p class="card-text">Mother : {{character.mother || 'Unavailable'}}</p>
+            <p class="card-text">Culture : {{character.culture || 'Unavailable'}}</p>
+            <p class="card-text" *ngFor = "let a of character.allegiances; let i = index;"><a target="_blank" class="btn" [routerLink]="['/house',sub(a)]">Click here to view the allegiance of {{character.aliases[0]}}</a>
+            <p class="card-text" *ngFor = "let book of character.books; let i = index;"><a target="_blank" class="btn" [routerLink]="['/book',sub(book)]">Click here to view the book of {{character.aliases[0]}}</a>
+</p>        </div>
+    </div>
+    <a class="btn btn-default" href="/">Click here to go to Home Page</a>
+</div>

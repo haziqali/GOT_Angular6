@@ -1,0 +1,41 @@
+
+<div>
+  <div class="loader centered" [hidden]="loader"></div>
+     
+  <div style="text-align: center; margin-left: 20%" class="col-md-7" *ngIf="book">
+      <div class="card">
+          <div class="card-body">
+               
+              <h4 class="card-title">{{book.name}}</h4>
+              <p class="card-text">Type : {{book.mediaType}}</p>
+              <p class="card-text">Released : {{book.released | date: 'dd/MM/yyyy' }}</p>
+              <p class="card-text" [hidden]="book.authors==''" *ngFor="let author of book.authors">Author: {{author}}</p>
+              <p class="card-text">Publisher : {{book.publisher}}</p>
+              <p class="card-text">ISBN : {{book.isbn}}</p>
+              <p class="card-text">Number of pages : {{book.numberOfPages}}</p>
+              <p class="card-text">
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      View all the characters in the book
+                  </button>
+              </p>
+              <div class="collapse" id="collapseOne">
+                  <div class="card card-block" *ngFor="let character of book.characters;let i = index;">
+                      <a target="_blank" class="btn" [routerLink]="['/character',sub(character)]">Click here to view character {{sub(character)}}</a>
+                      
+                  </div>
+              </div>
+              <p class="card-text">
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    View all the POV characters in the book
+                  </button>
+              </p>
+              <div class="collapse" id="collapseTwo">
+                  <div class="card card-block" *ngFor="let character of book.povCharacters; let i = index;">
+                      <a target="_blank" class="btn" [routerLink]="['/character',sub(character)]">Click here to view character {{sub(character)}}</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <a class="btn btn-default" href="/">Click here to go to Home Page</a>
+  </div>
+  </div>

@@ -1,0 +1,14 @@
+<div class="loader centered" *ngIf="loader"></div>
+<div style="text-align: center" *ngIf="allCharacters">
+  <b>Filter by Alias</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)]="search" style="margin-bottom: 8%">
+
+  <h3 class="text-center mb-5" style="background-color: black;color:whitesmoke;">Characters</h3>
+
+    <div class="card card-01 item card-border" *ngFor="let character of allCharacters | category: search | orderByAliases; let i = index">
+        <div class="card-body">
+          <h4 class="card-title">{{character.aliases[0] || 'Unavailable'}}</h4> 
+          <p class="card-text">Gender: {{character.gender || 'Unavailable'}}</p>
+            <a [routerLink]="['character', i]" class="btn btn-default text-uppercase">Click here for Details</a>
+        </div>
+    </div>
+</div>

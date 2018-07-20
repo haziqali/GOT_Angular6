@@ -1,0 +1,23 @@
+<div class="loader centered" [hidden]="loader"></div>
+<div style="text-align: center; margin-left: 20%" class="col-md-7" *ngIf="house">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{house.name || 'Unavailable'}}</h4>
+            <p class="card-text" >Coat Of Arms : {{house.coatOfArms || 'Unavailable'}}</p>
+            <p class="card-text" >Region : {{house.region || 'Unavailable'}}</p>
+            <p class="card-text" *ngFor="let weapon of house.ancestralWeapons" [hidden] = "house.ancestralWeapons[0]==''">Ancestral Weapon : {{weapon}}</p>
+            <p class="card-text" *ngFor="let cdt of house.cadetBranches" [hidden]="cdt!=''">Cadet House: <a target="_blank" class="btn" [routerLink]="['/house', sub(cdt)]">Click here to view Cadet House {{sub(cdt)}}</a></p>
+            
+            <p class="card-text" *ngIf="house.currentLord!=''">Current Lord : <a target="_blank" [routerLink]="['/character', sub(house.currentLord)]">Click here to view character {{sub(house.currentLord)}}</a></p>
+            <p class="card-text">Died Out : {{house.diedOut || 'Unavailable'}}</p>
+            <p class="card-text">Founded : {{house.founded || 'Unavailable'}}</p>
+            <p class="card-text" *ngFor="let seat of house.seats" [hidden]="seat==''">Seats : {{seat}}</p>
+            <p class="card-text" *ngFor="let title of house.titles" [hidden]="title==''">Titles : {{title}}</p>
+            <p class="card-text" [hidden]="house.overlord">Overlord House: <a target="_blank" class="btn" [routerLink]="['/house', sub(house.overlord)]">Click here to view Overlord House {{sub(house.overlord)}}</a></p>
+            <p class="card-text" *ngFor = "let member of house.swornMembers"  [hidden]="member==''">Sworn Members : <a [routerLink]="['/character', sub(member)]" target="_blank">Click here to view Sworn Member {{sub(member)}}</a></p>
+            <p class="card-text">Words : {{house.words || 'Unavailable'}}</p>
+
+        </div>
+    </div>
+    <a class="btn btn-default" href="/">Click here to go to Home Page</a>
+</div>

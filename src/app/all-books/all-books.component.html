@@ -1,0 +1,14 @@
+<div class="loader centered" *ngIf="loader"></div>
+<div style="text-align: center" *ngIf="allBooks">
+    <b><label>Filter by Book&nbsp;&nbsp;&nbsp;&nbsp;</label></b><input type="text" style="margin-bottom: 8%"  [(ngModel)]="search">
+
+    <h3 class="text-center mb-5" style="background-color: black; color:whitesmoke;">Books</h3>
+
+    <div class="card card-01 item card-border" *ngFor="let book of allBooks | category: search | orderBy ; let i = index;">
+        <div class="card-body">
+            <h4 class="card-title">{{book.name}}</h4>
+            <p class="card-text">Author: {{book.authors[0]}}</p>
+            <a [routerLink]="['book', i]" class="btn btn-default text-uppercase">Click here for Details</a>
+        </div>
+    </div>
+</div>

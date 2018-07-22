@@ -5,7 +5,7 @@
 
     <h3 class="text-center mb-5" style="background-color: black;color:whitesmoke;">Houses</h3>
 
-    <div class="card card-01 item card-border" *ngFor="let house of allHouses | category: search | orderBy; let i = index">
+    <div class="card card-01 item card-border" *ngFor="let house of allHouses | category: search ; let i = index">
         <div class="card-body">
           <h4 class="card-title">{{house.name}}</h4>
           <p class="card-text">Region: {{house.region}}</p>

@@ -12,7 +12,7 @@ export class CategoryPipe implements PipeTransform {
 
     return categories.filter(function(category) {
       if (searchText !== undefined) {
-      if (category.name !== '') {
+      if (category.name !== '' && category.aliases[0]==="") {
         console.log(6);
       return category.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
       } else {

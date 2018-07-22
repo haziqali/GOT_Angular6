@@ -4,7 +4,7 @@
 
     <h3 class="text-center mb-5" style="background-color: black; color:whitesmoke;">Books</h3>
 
-    <div class="card card-01 item card-border" *ngFor="let book of allBooks | category: search | orderBy ; let i = index;">
+    <div class="card card-01 item card-border" *ngFor="let book of allBooks | category: search ; let i = index;">
         <div class="card-body">
             <h4 class="card-title">{{book.name}}</h4>
             <p class="card-text">Author: {{book.authors[0]}}</p>
